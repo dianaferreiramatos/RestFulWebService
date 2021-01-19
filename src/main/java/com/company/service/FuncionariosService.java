@@ -7,7 +7,12 @@ import com.company.dto.Mapper;
 import com.company.exception.ConversaoException;
 import com.company.model.Autarquia;
 import com.company.model.Funcionario;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
+
+@Component
 public class FuncionariosService {
     public static ListaFuncionarioDTO getFuncionarios() {
         Autarquia autarquia = Dados.carregarDados();

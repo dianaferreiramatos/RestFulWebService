@@ -7,8 +7,12 @@ import com.company.dto.PessoaDTO;
 import com.company.exception.ConversaoException;
 import com.company.model.Autarquia;
 import com.company.model.Pessoa;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 
+@Component
 public class PessoasService {
     public static ListaPessoaDTO getPessoas() {
         ListaPessoaDTO listaPessoaDTO = null;
