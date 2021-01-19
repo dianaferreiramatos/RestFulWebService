@@ -2,6 +2,7 @@ package com.company.model;
 
 import com.company.exception.NumeroFuncionarioInvalidoException;
 import java.io.Serializable;
+
 public class Funcionario extends Pessoa implements Serializable {
     private int numeroFuncionario;
     private String cargo;
