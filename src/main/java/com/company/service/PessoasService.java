@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
-@Component
+
 public class PessoasService {
     public static ListaPessoaDTO getPessoas() {
         ListaPessoaDTO listaPessoaDTO = null;
