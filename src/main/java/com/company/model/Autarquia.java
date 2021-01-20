@@ -16,6 +16,7 @@ public class Autarquia implements Serializable {
         this.pessoas = new ArrayList<Pessoa>();
     }
 
+
     public ArrayList<Pessoa> getAllPessoas() {
         Pessoa pessoa;
         ArrayList<Pessoa> lista = new ArrayList<>();

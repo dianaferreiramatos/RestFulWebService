@@ -30,6 +30,9 @@ public class FuncionariosController {
             return new ResponseEntity<>(new ErroDTO(e), HttpStatus.CONFLICT);
         }
     }
+
+
+
     @RequestMapping(value = "/funcionarios/{id}", //{} --> path variable
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_XML_VALUE)
@@ -49,10 +52,13 @@ public class FuncionariosController {
             return new ResponseEntity<>(new ErroDTO(e), HttpStatus.CONFLICT);
         }
     }
+
+
     @RequestMapping(value = "/funcionarios",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_XML_VALUE,
             produces = MediaType.APPLICATION_XML_VALUE)
+            //e um POST, tem de passar a informacao que quer postar, neste caso do funcionario
     public ResponseEntity<Object> addFuncionario(@RequestBody FuncionarioDTO funcionarioDTO) {
         try {
             FuncionariosService.addFuncionario(funcionarioDTO);

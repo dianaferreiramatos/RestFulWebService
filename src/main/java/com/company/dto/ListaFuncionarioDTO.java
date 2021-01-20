@@ -5,7 +5,11 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import java.util.ArrayList;
 @JacksonXmlRootElement(localName = "funcionarios")
+
+
 public class ListaFuncionarioDTO {
+
+    //desta forma, na serializacao, nao vai conter o elemento <list></list>
     @JacksonXmlElementWrapper(useWrapping = false)
     @JacksonXmlProperty(localName = "funcionario")
     private ArrayList<FuncionarioDTO> funcionarios;

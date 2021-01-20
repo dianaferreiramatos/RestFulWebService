@@ -6,7 +6,11 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @JsonPropertyOrder({"dia", "mes", "ano"})
 @JacksonXmlRootElement(localName = "data")
+
 public class DataDTO {
+
+    //descreve como e que a informacao deve ser transformada para o formato XML - serializacao
+    //Neste caso e redundante uma vez que a "traducao" e exatamente igual ao nome do atributo
     @JacksonXmlProperty(localName = "dia")
     private int dia;
     @JacksonXmlProperty(localName = "mes")

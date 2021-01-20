@@ -4,9 +4,14 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
+//ordem dos atributos
 @JsonPropertyOrder({"nif", "nome", "nascimento"})
 @JacksonXmlRootElement(localName = "pessoa")
+
+
 public class PessoaDTO {
+
+
     @JacksonXmlProperty(localName = "nif")
     private long nif;
     @JacksonXmlProperty(localName = "nome")

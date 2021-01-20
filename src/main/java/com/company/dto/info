@@ -3,3 +3,44 @@ a set of \model class clones". These classes have only attributes, at least one
 constructor (without parameter) and getters and setters methods. These classes
 will be used for serailization and deserialization using the Jackson library. In order
 to incluse such library into the project update the pom.xml file with the blue text
+
+
+https://stackify.com/java-xml-jackson/
+@JacksonXmlProperty can be applied to any field in a bean to control the details of the element that is being rendered.
+This annotation allows us to determine the namespace, the local name, and whether the field is serialized as an Element
+or an Attribute.
+
+The @JacksonXmlRootElement has a similar role to the @JacksonXmlProperty but for the root element of the entire document.
+This can only adjust the Namespace and Local name – since the root element can never be serialized as an attribute.
+
+The @JacksonXmlElementWrapper annotation is used to override the default setting from setDefaultUseWrapper.
+This can ensure that a collection either does or does not use a wrapper element, and can control what the wrapper element
+uses for namespace and local name.
+
+When using wrapper elements, we get an additional element added which contains all of the elements from the collection,
+and when wrapper elements are not used then the individual collection elements are written directly inline:
+
+class Wrapper {
+    @JacksonXmlElementWrapper(localName = "list")
+    private List names;
+}
+This will produce the following XML:
+<Wrapper>
+    <list>
+        <names>John</names>
+        <names>Paul</names>
+        <names>George</names>
+        <names>Ringo</names>
+    </list>
+</Wrapper>
+Whereas, if the JacksonXmlElementWrapper is replaced with:
+
+@JacksonXmlElementWrapper(useWrapping = false)
+Then the XML produced won’t contain the list element:
+
+<Wrapper>
+    <names>John</names>
+    <names>Paul</names>
+    <names>George</names>
+    <names>Ringo</names>
+</Wrapper>

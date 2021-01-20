@@ -4,7 +4,10 @@ import com.company.model.Data;
 import com.company.model.Funcionario;
 import com.company.model.Pessoa;
 import java.util.ArrayList;
+
+
 public class Mapper {
+    //recebe uma Data e transforma num DataDTO
     public static DataDTO data2dataDTO(Data data) throws NullPointerException {
         DataDTO dataDTO = new DataDTO();
         dataDTO.setDia(data.getDia());
@@ -12,11 +15,15 @@ public class Mapper {
         dataDTO.setAno(data.getAno());
         return dataDTO;
     }
+
+    //Recebe um DataDTO e transforma numa Data
     public static Data dataDTO2data(DataDTO dataDTO) throws NullPointerException {
         Data data = null;
         data = new Data(dataDTO.getDia(), dataDTO.getMes(), dataDTO.getAno());
         return data;
     }
+
+    //Recebe PessoaDTO e transfora em Pessoa
     public static PessoaDTO pessoa2PessoaDTO(Pessoa pessoa) throws NullPointerException {
         PessoaDTO pessoaDTO = new PessoaDTO();
         pessoaDTO.setNif(pessoa.getNif());
@@ -25,12 +32,16 @@ public class Mapper {
         pessoaDTO.setNascimento(dataDTO);
         return pessoaDTO;
     }
+
+    //Recebe Pessoa e transforma em PessoaDTO
     public static Pessoa pessoaDTO2Pessoa(PessoaDTO pessoaDTO) throws NullPointerException {
         Pessoa pessoa = null;
         Data data = dataDTO2data(pessoaDTO.getNascimento());
         pessoa = new Pessoa(pessoaDTO.getNif(), pessoaDTO.getNome(), data);
         return pessoa;
     }
+
+    //Recebe Arraylist de Pessoa e transforma em ListaPessoaDTO
     public static ListaPessoaDTO listPessoa2PessoaDTO(ArrayList<Pessoa> pessoas) throws NullPointerException
     {
         ArrayList<PessoaDTO> pessoasDTO = new ArrayList<>();
@@ -39,13 +50,15 @@ public class Mapper {
                 PessoaDTO pessoaDTO = pessoa2PessoaDTO(pessoa);
                 pessoasDTO.add(pessoaDTO);
             } catch (NullPointerException e) {
-//does nothing. Actually, nothing is added to arraylist
+                    //does nothing. Actually, nothing is added to arraylist
             }
         }
         ListaPessoaDTO listaPessoaDTO = new ListaPessoaDTO();
         listaPessoaDTO.setPessoas(pessoasDTO);
         return listaPessoaDTO;
     }
+
+    //Recebe Funcionario e transforma FuncionarioDTO
     public static FuncionarioDTO funcionario2FuncionarioDTO(Funcionario funcionario) throws
             NullPointerException {
         FuncionarioDTO funcionarioDTO = new FuncionarioDTO();
@@ -57,6 +70,8 @@ public class Mapper {
         funcionarioDTO.setCargo(funcionario.getCargo());
         return funcionarioDTO;
     }
+
+    //Recebe FuncionarioDTO e transforma em Funcionario
     public static Funcionario funcionarioDTO2Funcionario(FuncionarioDTO funcionarioDTO) throws
             NullPointerException {
         Funcionario funcionario = null;
@@ -65,6 +80,8 @@ public class Mapper {
                 getNumeroFuncionario(), funcionarioDTO.getCargo());
         return funcionario;
     }
+
+    //Recebe Arraylist de Funcionario e transforma em ListaFuncionarioDTO
     public static ListaFuncionarioDTO listFuncionario2FuncionarioDTO(ArrayList<Funcionario> funcionarios)
             throws NullPointerException {
         ArrayList<FuncionarioDTO> funcionariosDTO = new ArrayList<>();
@@ -73,7 +90,7 @@ public class Mapper {
                 FuncionarioDTO funcionarioDTO = funcionario2FuncionarioDTO(funcionario);
                 funcionariosDTO.add(funcionarioDTO);
             } catch (NullPointerException e) {
-//does nothing. Actually, nothing is added to arraylist
+            //does nothing. Actually, nothing is added to arraylist
             }
         }
         ListaFuncionarioDTO listaFuncionarioDTO = new ListaFuncionarioDTO();

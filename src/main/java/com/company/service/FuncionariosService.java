@@ -32,6 +32,7 @@ public class FuncionariosService {
         }
     }
     public static void addFuncionario(FuncionarioDTO funcionarioDTO) {
+        //transformar info DTO num Funcionario
         Funcionario funcionario = Mapper.funcionarioDTO2Funcionario(funcionarioDTO);
         if (funcionario != null) {
             Autarquia autarquia = Dados.carregarDados();
