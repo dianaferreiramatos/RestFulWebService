@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api")
 public class FuncionariosController {
-    @RequestMapping(value = "/funcionarios",
+    @RequestMapping(value = "/funcionarios", // caminho url para testes
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<Object> getFuncionarios() {
