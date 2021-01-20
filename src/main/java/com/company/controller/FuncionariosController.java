@@ -15,23 +15,30 @@ public class FuncionariosController {
     @RequestMapping(value = "/funcionarios", // caminho url para testes
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_XML_VALUE)
+    //metodo para mostrar lista de funcionarios
     public ResponseEntity<Object> getFuncionarios() {
         try {
+            //DTO acede ao servico FuncionariosService e chama o metodo getFuncionarios()
             ListaFuncionarioDTO listaFuncionarioDTO = FuncionariosService.getFuncionarios();
             if (listaFuncionarioDTO != null) {
                 return new ResponseEntity<>(listaFuncionarioDTO, HttpStatus.OK);
             } else {
+                //se a lista dos func estiver vazia retorna NO_CONTENT no pedido http
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
         } catch (Exception e) {
             return new ResponseEntity<>(new ErroDTO(e), HttpStatus.CONFLICT);
         }
     }
-    @RequestMapping(value = "/funcionarios/{id}",
+    @RequestMapping(value = "/funcionarios/{id}", //{} --> path variable
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<Object> getFuncionario(@PathVariable("id") int nr) {
+    //Metodo para mostrar funcionario especifico
+    public ResponseEntity<Object> getFuncionario(@PathVariable("id") int nr
+                                                            //int nr é o correspondente à pathVariable "id"
+                                                                    ) {
         try {
+            //DTO acede ao servico e chama o metodo para aceder ao funcionario pedido
             FuncionarioDTO funcionarioDTO = FuncionariosService.getFuncionario(nr);
             if (funcionarioDTO != null) {
                 return new ResponseEntity<>(funcionarioDTO, HttpStatus.OK);
