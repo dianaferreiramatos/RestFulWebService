@@ -1,0 +1,5 @@
+The model classes cannot be exposed to outside. So, to avoid that it will be created
+a set of \model class clones". These classes have only attributes, at least one
+constructor (without parameter) and getters and setters methods. These classes
+will be used for serailization and deserialization using the Jackson library. In order
+to incluse such library into the project update the pom.xml file with the blue text

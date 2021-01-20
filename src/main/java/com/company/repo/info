@@ -1,0 +1,2 @@
+This package implements the functions required to persist the application data.
+In this case, the data is stored in a binary file, called autarquia\_dados.dat
