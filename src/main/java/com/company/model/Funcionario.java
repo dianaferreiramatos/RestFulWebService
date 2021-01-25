@@ -3,6 +3,7 @@ package com.company.model;
 import com.company.exception.NumeroFuncionarioInvalidoException;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,18 +16,27 @@ public class Funcionario extends Pessoa implements Serializable {
     @Id // e o identificador de funcionario na tabela
     @Column(name = "numero_Funcionario") //definicao do nome da coluna na tabela
     private int numeroFuncionario;
-
     @Column // nome da coluna na tabela e o msm do atributo
     private String cargo;
 
-    public Funcionario(long nif, String nome, Data nascimento) {
-        super(nif, nome, nascimento);
+
+    public Funcionario(int numeroFuncionario) {
+        this.numeroFuncionario = numeroFuncionario;
     }
 
-    public Funcionario(long nif, String nome, Data nascimento, int numeroFuncionario, String cargo) {
+    public Funcionario(long nif, String nome, Data nascimento, int numeroFuncionario) {
         super(nif, nome, nascimento);
         setNumeroFuncionario(numeroFuncionario);
-        this.cargo = cargo;
+    }
+
+    public Funcionario(long nif, String nome, Data nascimento, ArrayList<Terreno> listaTerrenos, int numeroFuncionario) {
+        super(nif, nome, nascimento, listaTerrenos);
+        setNumeroFuncionario(numeroFuncionario);
+    }
+
+    public Funcionario(Pessoa pessoa, int numeroFuncionario) {
+        super(pessoa);
+        setNumeroFuncionario(numeroFuncionario);
     }
 
     public Funcionario(Funcionario funcionario) {
@@ -54,4 +64,6 @@ public class Funcionario extends Pessoa implements Serializable {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+
+
 }

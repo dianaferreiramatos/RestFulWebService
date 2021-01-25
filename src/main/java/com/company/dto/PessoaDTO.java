@@ -1,5 +1,6 @@
 package com.company.dto;
 
+import com.company.model.Terreno;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
@@ -7,7 +8,6 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 //ordem dos atributos
 @JsonPropertyOrder({"nif", "nome", "nascimento"})
 @JacksonXmlRootElement(localName = "pessoa")
-
 
 public class PessoaDTO {
 
@@ -20,6 +20,8 @@ public class PessoaDTO {
     private String nome;
     @JacksonXmlProperty(localName = "data_nascimento")
     private DataDTO nascimento;
+    @JacksonXmlProperty(localName = "terreno")
+    private ListaTerrenosDTO listaTerrenosDTO;
 
     public PessoaDTO() {
     }
@@ -34,6 +36,14 @@ public class PessoaDTO {
 
     public String getNome() {
         return nome;
+    }
+
+    public ListaTerrenosDTO getListaTerrenosDTO() {
+        return listaTerrenosDTO;
+    }
+
+    public void setListaTerrenosDTO(ListaTerrenosDTO listaTerrenosDTO) {
+        this.listaTerrenosDTO = listaTerrenosDTO;
     }
 
     public void setNome(String nome) {
