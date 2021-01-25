@@ -3,6 +3,8 @@ package com.company.controller;
 import com.company.dto.ErroDTO;
 import com.company.dto.ListaPessoaDTO;
 import com.company.dto.PessoaDTO;
+import com.company.dto.TerrenoDTO;
+import com.company.model.Terreno;
 import com.company.service.PessoasService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -84,6 +86,19 @@ public class PessoasController {
         try {
             PessoasService.removePessoa(nif);
             return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(new ErroDTO(e), HttpStatus.CONFLICT);
+        }
+    }
+
+    @RequestMapping(value = "/pessoas/terrenos/{idpessoa}",
+            method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_XML_VALUE,
+            produces = MediaType.APPLICATION_XML_VALUE)
+    public ResponseEntity<Object> addTerrenoToPessoa(@PathVariable("idpessoa") long nif, TerrenoDTO terrenoDTO) {
+        try {
+            PessoasService.addTerreno(terrenoDTO);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(new ErroDTO(e), HttpStatus.CONFLICT);
         }

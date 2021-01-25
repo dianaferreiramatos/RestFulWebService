@@ -110,7 +110,7 @@ public class Mapper {
         return freguesiaDTO;
     }
 
-    //Recebe Terreni e transforma TerrenoDTO
+    //Recebe Terreno e transforma TerrenoDTO
     public static TerrenoDTO terreno2TerrenoDTO(Terreno terreno) throws
             NullPointerException {
         TerrenoDTO terrenoDTO = new TerrenoDTO();
@@ -120,7 +120,7 @@ public class Mapper {
     }
 
     //Recebe Arraylist de Freguesias e transforma em ListaFreguesiasDTO
-    public static ListaFreguesiasDTO listFreguesias2FreguesiasDTO(ArrayList<Freguesia> freguesias)
+    /*public static ListaFreguesiasDTO listFreguesias2FreguesiasDTO(ArrayList<Freguesia> freguesias)
             throws NullPointerException {
         ArrayList<ListaFreguesiasDTO> freguesiasDTO = new ArrayList<>();
         for (Freguesia freguesia : freguesias) {
@@ -134,6 +134,6 @@ public class Mapper {
         ListaFuncionarioDTO listaFuncionarioDTO = new ListaFuncionarioDTO();
         listaFuncionarioDTO.setFuncionarios(funcionariosDTO);
         return listaFuncionarioDTO;
-    }
+    }*/
 }
 
