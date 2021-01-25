@@ -3,10 +3,15 @@ package com.company.model;
 import com.company.exception.NifInvalidoException;
 import com.company.exception.NomePessoaInvalidoException;
 import java.io.Serializable;
-public class Pessoa implements Serializable {
+
+//preciso de implementar Serializable para conseguir fazer GET a pessoas
+public class Pessoa implements Serializable
+         {
     private long nif;
     private String nome;
     private Data nascimento;
+
+
     public Pessoa() {
     }
     public Pessoa(long nif, String nome, Data nascimento) {
@@ -34,14 +39,14 @@ public class Pessoa implements Serializable {
             this.nif = nif;
         }
         else {
-            throw new NifInvalidoException(nif+ ": NIF inv´alido");
+            throw new NifInvalidoException(nif+ ": NIF inválido");
         }
     }
     public void setNome(String nome) throws NomePessoaInvalidoException{
         if(eNomeValido(nome)) {
             this.nome = nome;
         }else {
-            throw new NomePessoaInvalidoException(nome+ ": Nome inv´alido");
+            throw new NomePessoaInvalidoException(nome+ ": Nome inválido");
         }
     }
     public void setNascimento(Data nascimento) {

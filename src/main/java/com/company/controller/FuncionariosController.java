@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
+
 public class FuncionariosController {
     @RequestMapping(value = "/funcionarios", // caminho url para testes
             method = RequestMethod.GET,
@@ -67,6 +68,8 @@ public class FuncionariosController {
             return new ResponseEntity<>(new ErroDTO(e), HttpStatus.CONFLICT);
         }
     }
+
+
     @RequestMapping(value = "/funcionarios/{id}",
             method = RequestMethod.PUT,
             consumes = MediaType.APPLICATION_XML_VALUE,
@@ -80,6 +83,9 @@ public class FuncionariosController {
             return new ResponseEntity<>(new ErroDTO(e), HttpStatus.CONFLICT);
         }
     }
+
+
+    //posso dar o nome que quiser a pathvariable, o importante e fazer a ligacao entre ela e ao q corresponde
     @RequestMapping(value = "/funcionarios/{id}",
             method = RequestMethod.DELETE,
             produces = MediaType.APPLICATION_XML_VALUE)

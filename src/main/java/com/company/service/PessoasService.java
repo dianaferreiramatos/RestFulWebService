@@ -18,9 +18,12 @@ public class PessoasService {
         ListaPessoaDTO listaPessoaDTO = null;
         Autarquia autarquia = Dados.carregarDados();
         ArrayList<Pessoa> pessoas = autarquia.getAllPessoas();
+        //transformar lista de pessoas em pessoasDTO
         listaPessoaDTO = Mapper.listPessoa2PessoaDTO(pessoas);
         return listaPessoaDTO;
     }
+
+
     public static PessoaDTO getPessoa(long nif) {
         Autarquia autarquia = Dados.carregarDados();
         Pessoa pessoa = autarquia.getPessoa(nif);
@@ -34,6 +37,8 @@ public class PessoasService {
             throw new ConversaoException("PessoaDTO");
         }
     }
+
+
     public static void addPessoa(PessoaDTO pessoaDTO) {
         Pessoa pessoa = Mapper.pessoaDTO2Pessoa(pessoaDTO);
         if (pessoa != null) {
@@ -44,6 +49,8 @@ public class PessoasService {
             throw new ConversaoException("PessoaDTO");
         }
     }
+
+
     public static void updatePessoa(long nif, PessoaDTO pessoaDTO) {
         Pessoa pessoa = Mapper.pessoaDTO2Pessoa(pessoaDTO);
         if (pessoa != null) {
@@ -54,6 +61,8 @@ public class PessoasService {
             throw new ConversaoException("PessoaDTO");
         }
     }
+
+
     public static void removePessoa(long nif) {
         Autarquia autarquia = Dados.carregarDados();
         autarquia.removePessoa(nif);

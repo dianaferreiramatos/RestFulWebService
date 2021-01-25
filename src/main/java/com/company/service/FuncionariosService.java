@@ -12,12 +12,15 @@ import java.util.ArrayList;
 
 
 public class FuncionariosService {
+
     public static ListaFuncionarioDTO getFuncionarios() {
         Autarquia autarquia = Dados.carregarDados();
         ArrayList<Funcionario> funcionarios = autarquia.getFuncionarios();
         ListaFuncionarioDTO listaFuncionarioaDTO = Mapper.listFuncionario2FuncionarioDTO(funcionarios);
         return listaFuncionarioaDTO;
     }
+
+
     public static FuncionarioDTO getFuncionario(int nr) {
         Autarquia autarquia = Dados.carregarDados();
         Funcionario funcionario = autarquia.getFuncionario(nr);
@@ -31,6 +34,8 @@ public class FuncionariosService {
             throw new ConversaoException("FuncionarioDTO");
         }
     }
+
+
     public static void addFuncionario(FuncionarioDTO funcionarioDTO) {
         //transformar info DTO num Funcionario
         Funcionario funcionario = Mapper.funcionarioDTO2Funcionario(funcionarioDTO);
@@ -42,6 +47,8 @@ public class FuncionariosService {
             throw new ConversaoException("FuncionarioDTO");
         }
     }
+
+
     public static void updateFuncionario(int nr, FuncionarioDTO funcionarioDTO) {
         Funcionario funcionario = Mapper.funcionarioDTO2Funcionario(funcionarioDTO);
         if (funcionario != null) {
@@ -52,6 +59,8 @@ public class FuncionariosService {
             throw new ConversaoException("FuncionarioDTO");
         }
     }
+
+
     public static void removeFuncionario(int nr) {
         Autarquia autarquia = Dados.carregarDados();
         autarquia.removeFuncionario(nr);

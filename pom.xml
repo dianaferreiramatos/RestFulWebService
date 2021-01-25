@@ -39,9 +39,35 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!--injetar esta dependencia do jackson: will automatically pull in all of the other Jackson dependencies that
+        are needed:
+
+        Jackson Core
+        Jackson Annotations
+        Jackson Databind
+        Jackson Module JAXB Annotations -->
+
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
+            <!--aqui nao estou a colocar a versao do jackson. isto nao deve acontecer pq deste modo estoua  herdar a versao
+            e isso pode causar erros-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>2.2.3</version>
         </dependency>
     </dependencies>
 

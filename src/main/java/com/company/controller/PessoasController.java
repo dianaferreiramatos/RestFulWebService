@@ -8,8 +8,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 @RestController
 @RequestMapping("/api")
+
 public class PessoasController {
     @RequestMapping(value = "/pessoas",
             method = RequestMethod.GET,
@@ -26,6 +28,8 @@ public class PessoasController {
             return new ResponseEntity<>(new ErroDTO(e), HttpStatus.CONFLICT);
         }
     }
+
+
     @RequestMapping(value = "/pessoas/{id}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_XML_VALUE)
@@ -41,6 +45,8 @@ public class PessoasController {
             return new ResponseEntity<>(new ErroDTO(e), HttpStatus.CONFLICT);
         }
     }
+
+
     @RequestMapping(value = "/pessoas",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_XML_VALUE,
@@ -53,6 +59,8 @@ public class PessoasController {
             return new ResponseEntity<>(new ErroDTO(e), HttpStatus.CONFLICT);
         }
     }
+
+
     @RequestMapping(value = "/pessoas/{id}",
             method = RequestMethod.PUT,
             consumes = MediaType.APPLICATION_XML_VALUE,
@@ -66,7 +74,10 @@ public class PessoasController {
             return new ResponseEntity<>(new ErroDTO(e), HttpStatus.CONFLICT);
         }
     }
+
+
     @RequestMapping(value = "/pessoas/{id}",
+            //por defeito é json por isso e preciso definir isto:
             method = RequestMethod.DELETE,
             produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<Object> removePessoa(@PathVariable("id") long nif) {

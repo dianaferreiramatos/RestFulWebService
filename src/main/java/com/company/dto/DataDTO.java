@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
+//JacksonLibrary
+//nao é preciso fazer a implementacao direta do serializable
 @JsonPropertyOrder({"dia", "mes", "ano"})
 @JacksonXmlRootElement(localName = "data")
 

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 
 public class Mapper {
+
     //recebe uma Data e transforma num DataDTO
     public static DataDTO data2dataDTO(Data data) throws NullPointerException {
         DataDTO dataDTO = new DataDTO();
@@ -23,7 +24,7 @@ public class Mapper {
         return data;
     }
 
-    //Recebe PessoaDTO e transfora em Pessoa
+    //Recebe PessoaDTO e transforma em Pessoa
     public static PessoaDTO pessoa2PessoaDTO(Pessoa pessoa) throws NullPointerException {
         PessoaDTO pessoaDTO = new PessoaDTO();
         pessoaDTO.setNif(pessoa.getNif());

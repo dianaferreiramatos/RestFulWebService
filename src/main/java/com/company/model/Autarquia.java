@@ -10,12 +10,22 @@ import java.util.ArrayList;
 public class Autarquia implements Serializable {
     private String nome;
     private ArrayList<Pessoa> pessoas;
+    private ArrayList<Freguesia> listaFreguesias;
 
     public Autarquia(String nome) {
+        this.nome = nome;
+    }
+
+    public Autarquia(String nome, ArrayList<Pessoa> pessoas) {
         this.nome = nome;
         this.pessoas = new ArrayList<Pessoa>();
     }
 
+    public Autarquia(String nome, ArrayList<Pessoa> pessoas, ArrayList<Freguesia> listaFreguesias) {
+        this.nome = nome;
+        this.pessoas = new ArrayList<Pessoa>();
+        this.listaFreguesias = listaFreguesias;
+    }
 
     public ArrayList<Pessoa> getAllPessoas() {
         Pessoa pessoa;
@@ -104,7 +114,7 @@ public class Autarquia implements Serializable {
     }
 
     ///////////////////////////////////////////////
-// Funcion´arios
+// Funcionarios
     public ArrayList<Funcionario> getFuncionarios() {
         Pessoa pessoa;
         ArrayList<Funcionario> lista = new ArrayList<>();
@@ -157,7 +167,7 @@ public class Autarquia implements Serializable {
                 }
             }
         }
-        throw new ElementoNaoExistenteException(nr + ": N~ao existe esse funcion´ario");
+        throw new ElementoNaoExistenteException(nr + ": Nãoo existe esse funcionario");
     }
 
     public void updateFuncionario(int nr, Funcionario f) throws ElementoNaoExistenteException {
@@ -192,5 +202,43 @@ public class Autarquia implements Serializable {
             }
         }
         return null;
+    }
+
+    private boolean checkIfFreguesiaPertenceAutarquia(Freguesia freguesia){
+        boolean exists = false;
+        if(freguesia != null){
+            for (Freguesia freg: listaFreguesias) {
+                if (freg.equals(freguesia)){
+                    exists = true;
+                    return exists;
+                }
+            }
+        }
+        return exists;
+    }
+
+    private boolean addFreguesia(Freguesia freguesia){
+        boolean exists = false;
+        if(!this.nome.equals(freguesia.getAutarquia())){
+            return exists;
+        }
+        if (checkIfFreguesiaPertenceAutarquia(freguesia))
+            return exists;
+        else{
+            exists = true;
+            this.listaFreguesias.add(freguesia);
+        }
+        return exists;
+    }
+
+    private boolean removeFreguesia(Freguesia freguesia){
+        boolean exists = false;
+        if(!this.nome.equals(freguesia.getAutarquia())){
+            return exists;
+        }
+        if (checkIfFreguesiaPertenceAutarquia(freguesia))
+            exists = true;
+            this.listaFreguesias.remove(freguesia);
+            return exists;
     }
 }

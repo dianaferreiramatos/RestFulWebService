@@ -11,6 +11,8 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 public class PessoaDTO {
 
+//Jackson é uma framework que me permite serializar e nao ter de usar o serializable
+    //com o serializable nao controlo tanto os dados, com o jackson sim, entre outras coisas
 
     @JacksonXmlProperty(localName = "nif")
     private long nif;
