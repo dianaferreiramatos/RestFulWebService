@@ -1,5 +1,7 @@
 package com.company.service;
 
+import com.company.dto.TerrenoDTO;
+import com.company.model.Terreno;
 import com.company.repo.Dados;
 import com.company.dto.ListaPessoaDTO;
 import com.company.dto.Mapper;
@@ -67,5 +69,10 @@ public class PessoasService {
         Autarquia autarquia = Dados.carregarDados();
         autarquia.removePessoa(nif);
         Dados.guardarDados(autarquia);
+    }
+
+    public static void addterreno(TerrenoDTO terrenoDTO){
+        Terreno terreno1 = Mapper.terrenoDTO2terreno();
+        
     }
 }
