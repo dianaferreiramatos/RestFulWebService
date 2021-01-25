@@ -7,7 +7,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 
-@JsonPropertyOrder({"", "nome", "autarquia"})
+@JsonPropertyOrder({"", "nome", "nome_autarquia", "lista_freguesias"})
 @JacksonXmlRootElement(localName = "freguesia")
 public class FreguesiaDTO {
 
@@ -29,4 +29,13 @@ public class FreguesiaDTO {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public String getNomeAutarquia() {
+        return nomeAutarquia;
+    }
+
+    public void setNomeAutarquia(String nomeAutarquia) {
+        this.nomeAutarquia = nomeAutarquia;
+    }
+
 }

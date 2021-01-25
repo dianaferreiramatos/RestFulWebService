@@ -1,8 +1,7 @@
 package com.company.dto;
 
-import com.company.model.Data;
-import com.company.model.Funcionario;
-import com.company.model.Pessoa;
+import com.company.model.*;
+
 import java.util.ArrayList;
 
 
@@ -72,6 +71,7 @@ public class Mapper {
         return funcionarioDTO;
     }
 
+
     //Recebe FuncionarioDTO e transforma em Funcionario
     public static Funcionario funcionarioDTO2Funcionario(FuncionarioDTO funcionarioDTO) throws
             NullPointerException {
@@ -92,6 +92,43 @@ public class Mapper {
                 funcionariosDTO.add(funcionarioDTO);
             } catch (NullPointerException e) {
             //does nothing. Actually, nothing is added to arraylist
+            }
+        }
+        ListaFuncionarioDTO listaFuncionarioDTO = new ListaFuncionarioDTO();
+        listaFuncionarioDTO.setFuncionarios(funcionariosDTO);
+        return listaFuncionarioDTO;
+    }
+
+    //Recebe Freguesia e transforma FreguesiaDTO
+    //nao esta a contemplar a freguesiasRepository!!!
+    //!!!!!!!!!!
+    public static FreguesiaDTO freguesias2FreguesiasDTO(Freguesia freguesia) throws
+            NullPointerException {
+        FreguesiaDTO freguesiaDTO = new FreguesiaDTO();
+        freguesiaDTO.setNome(freguesia.getName());
+        freguesiaDTO.setNomeAutarquia(freguesia.getAutarquia());
+        return freguesiaDTO;
+    }
+
+    //Recebe Terreni e transforma TerrenoDTO
+    public static TerrenoDTO terreno2TerrenoDTO(Terreno terreno) throws
+            NullPointerException {
+        TerrenoDTO terrenoDTO = new TerrenoDTO();
+        terrenoDTO.setArea(terreno.getArea());
+        terrenoDTO.setForma(terreno.getForma());
+        return terrenoDTO;
+    }
+
+    //Recebe Arraylist de Freguesias e transforma em ListaFreguesiasDTO
+    public static ListaFreguesiasDTO listFreguesias2FreguesiasDTO(ArrayList<Freguesia> freguesias)
+            throws NullPointerException {
+        ArrayList<ListaFreguesiasDTO> freguesiasDTO = new ArrayList<>();
+        for (Freguesia freguesia : freguesias) {
+            try {
+                FreguesiaDTO freguesiaDTO = freguesias2FreguesiasDTO(freguesia);
+                freguesiasDTO.add(freguesiaDTO);
+            } catch (NullPointerException e) {
+                //does nothing. Actually, nothing is added to arraylist
             }
         }
         ListaFuncionarioDTO listaFuncionarioDTO = new ListaFuncionarioDTO();

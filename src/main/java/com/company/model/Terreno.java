@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Terreno {
 
     public static enum Forma {
-        CIRCULO, QUADRADO, TRIANGULO
+        CIRCULO, QUADRADO, TRIANGULO;
     };
 
     private float area;
